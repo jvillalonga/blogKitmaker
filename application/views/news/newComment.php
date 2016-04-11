@@ -1,6 +1,4 @@
 <div class="comment">
-    <?php //echo validation_errors(); ?>
-    <?php //echo form_open('news/creaComment'); ?>
     <form action="creaComment" method="post">
         <fieldset>
             <legend>Nuevo comentario</legend>

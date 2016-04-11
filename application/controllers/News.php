@@ -104,22 +104,9 @@ class News extends CI_Controller {
 
 //funcion para crear comentario
     public function creaComment() {
-        $this->load->helper('form');
-        $this->load->library('form_validation');
 
-        $this->form_validation->set_rules('text', 'Commentario', 'required');
-
-        if ($this->form_validation->run() === FALSE) {
-            $slug = $this->input->post('slug');
-        $data['news_item'] = $this->news_model->get_news($slug);
-            $this->load->view('templates/header');
-            $this->load->view('news/view', $data);
-            $this->load->view('templates/footer');
-            //$this->load->view('news/messageError');
-        } else {
-            $this->news_model->set_comments();
-            $this->load->view('news/success');
-        }
+        $this->news_model->set_comments();
+        $this->load->view('news/success');
     }
 
 //funcion para borrar comentario
