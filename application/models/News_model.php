@@ -6,7 +6,7 @@ class News_model extends CI_Model {
         $this->load->helper('date');
         $this->load->database();
     }
-
+//get de todos los articulos
     public function get_news($slug = FALSE) {
         if ($slug === FALSE) {
             $this->db->order_by('id', 'DESC');
@@ -17,13 +17,13 @@ class News_model extends CI_Model {
         $query = $this->db->get_where('articulos', array('slug' => $slug));
         return $query->row_array();
     }
-
+//geter de los últimos 5 articulos
     public function get_last_news() {
         $this->db->order_by('id', 'DESC');
         $query = $this->db->get('articulos', 5);
         return $query->result_array();
     }
-
+//seter de articulo
     public function set_news() {
         $this->load->helper('url');
 
@@ -42,7 +42,7 @@ class News_model extends CI_Model {
         );
         return $this->db->insert('articulos', $data);
     }
-
+//eliminar articulo
     public function del_news($id) {
         $this->db->where('id', $id);
         return $this->db->delete('articulos');
@@ -60,7 +60,7 @@ class News_model extends CI_Model {
         $query = $this->db->count_all_results();
         return $query;
     }
-
+//seter de comentario
     public function set_comments() {
         $this->load->helper('url');
         $date = mdate('%Y-%m-%d', time());
@@ -78,12 +78,12 @@ class News_model extends CI_Model {
 
         return $this->db->insert('comentarios', $data);
     }
-
+//geter de comentarios
     public function get_comments($id) {
         $query = $this->db->get_where('comentarios', array('idArticulo' => $id));
         return $query->result_array();
     }
-
+//eliminar comentario
     public function del_comments($id) {
         $this->db->where('id', $id);
         return $this->db->delete('comentarios');
