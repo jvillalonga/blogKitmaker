@@ -21,6 +21,8 @@ foreach ($comments as $comments_item):
 <?php endforeach; ?>
 
 <div class="comment">
+    <?php //echo validation_errors(); ?>
+    <?php //echo form_open('news/comment'); ?>
     <form action="comment" method="post">
         <fieldset>
             <legend>Nuevo comentario</legend>

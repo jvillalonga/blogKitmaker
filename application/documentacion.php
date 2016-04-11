@@ -1,6 +1,6 @@
 
 
-
+<h2>Creación de la Base de datos y tablas.</h2>
 
 CREATE DATABASE `blogkitmaker` /*!40100 DEFAULT CHARACTER SET utf8 */
 
@@ -32,3 +32,8 @@ CREATE TABLE `comentarios` (
  KEY `idArticulo` (`idArticulo`),
  CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`idArticulo`) REFERENCES `articulos` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
 );
+
+
+<p>Solo los administradores pueden iniciar sesión. Una vez iniciada los administradores pueden crear nuevos artículos.</p>
+<p>Al ver los detalles de un artículo tambien se pueden ver todos los comentarios de dicho artículo. El administrador podrá eliminar qualquier comentario.</p>
+<p>Cualquiera puede crear comentarios. En caso de no introducir ningún nombre de autor aparecerá como 'anonimo'.</p>

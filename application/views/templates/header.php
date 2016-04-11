@@ -14,15 +14,7 @@
             $(document).ready(function () {
                 $('#taula').DataTable();
             });
-//            $(window).bind('scroll', function (e) {
-//                parallaxScroll();
-//            });
-//
-//            function parallaxScroll() {
-//                var scrolled = $(window).scrollTop();
-//                $('#parallax-bg1').css('top', (0 - (scrolled * .5)) + 'px');
-//                $('#parallax-bg2').css('top', (400 - (scrolled * 1.5)) + 'px');
-//            }
+            
         </script>
 
         <div id="header">

@@ -8,7 +8,7 @@
                 <th>Fecha</th>
                 <th>Info</th>
                 <th>Enlace</th>
-                <th>B</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -20,10 +20,10 @@
                     <td><?php echo substr($news_item['text'],0,20).' ...'; ?></td>
                     <td><a href="<?php echo site_url('news/' . $news_item['slug']); ?>">Leer más</a></td>
                     <td>
-                        <!--boton borrar-->
+                        <!--formulario borrar articulor-->
                             <?php if (isset($_SESSION["log"]) && $_SESSION["log"] == 'ok') { ?>
                             <form action="borrar" method="post">
-                                <input type="hidden" name="id" value="<?php $news_item['id'] ?>"/>
+                                <input type="hidden" name="id" value="<?php echo $news_item['id'] ?>"/>
                                 <input type = "submit" name = "submit" value = "Borrar artículo" />
                             </form>
                         <?php } ?>

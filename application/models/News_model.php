@@ -38,7 +38,7 @@ class News_model extends CI_Model {
         return $this->db->insert('articulos', $data);
     }
 
-    public function del_new($id) {
+    public function del_news($id) {
         $this->db->where('id', $id);
         return $this->db->delete('articulos');
     }
@@ -56,7 +56,7 @@ class News_model extends CI_Model {
         return $query;
     }
 
-    public function set_comment() {
+    public function set_comments() {
         $this->load->helper('url');
         $date = mdate('%Y-%m-%d', time());
         if ($_POST['user'] !== '') {
@@ -79,7 +79,7 @@ class News_model extends CI_Model {
         return $query->result_array();
     }
 
-    public function del_comment($id) {
+    public function del_comments($id) {
         $this->db->where('id', $id);
         return $this->db->delete('comentarios');
     }
