@@ -1,15 +1,11 @@
 body{
     background-color:#D0D0D0;
 }
-#header{
+#footer, #menu, #header{
     text-align: center;
     color: white;
     background-color: #111111;
-}
-#footer, #menu{
     padding:5px;
-    background-color: #696969;
-    text-align: center;
 }
 .info{
     color: black;
@@ -43,7 +39,7 @@ body{
     background-color: white;
     box-shadow: 5px 5px 5px #888888;
 }
-.fecha{
+.infoArt{
     color: grey;
     font-size: small;
 }
