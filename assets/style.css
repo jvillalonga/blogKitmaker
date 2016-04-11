@@ -8,9 +8,7 @@ body{
     padding:5px;
 }
 .info{
-    color: black;
-    float:right;
-    margin: 10px;
+    display: none;
 }
 .article {
     background-color:#FFFFFF;
