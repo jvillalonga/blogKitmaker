@@ -26,11 +26,11 @@ class News extends CI_Controller {
         $data['title'] = 'Blog';
 
         $this->load->view('templates/header', $data);
-        $this->load->view('news/allNews', $data);
+        $this->load->view('news/allNews');
         $this->load->view('templates/deviceInfo');
         $this->load->view('templates/footer');
     }
-    
+
 //funcion para mostrar articulos
     public function view($slug = NULL) {
         $data['news_item'] = $this->news_model->get_news($slug);
@@ -68,10 +68,10 @@ class News extends CI_Controller {
         }
     }
 
-//funcion para borrar articulo, no se usa
+//funcion para borrar articulo
     public function borrar() {
         $this->load->helper('form');
-        $this->news_model->del_new($_POST['id']);
+        $this->news_model->del_news($this->input->post('id'));
 
         $this->load->view('news/success');
     }
@@ -93,7 +93,7 @@ class News extends CI_Controller {
         } else {
             if ($this->news_model->get_user() === 1) {
                 $_SESSION["log"] = 'ok';
-                $_SESSION["user"] = $_POST['user'];
+                $_SESSION["user"] = $this->input->post('user');
                 $this->load->view('news/logSuccess');
             }
             if ($this->news_model->get_user() === 0) {
@@ -104,20 +104,30 @@ class News extends CI_Controller {
 
 //funcion para crear comentario
     public function creaComment() {
-        $this->news_model->set_comment();
-//        $data['title'] = '';
-//        $data['slug'] = 'dsfg';
-//        $this->load->view('templates/header', $data);
-//        $this->load->view('news/view', $data);
-//        $this->load->view('templates/footer');
-        $this->load->view('news/success');
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('text', 'Commentario', 'required');
+
+        if ($this->form_validation->run() === FALSE) {
+            $slug = $this->input->post('slug');
+        $data['news_item'] = $this->news_model->get_news($slug);
+            $this->load->view('templates/header');
+            $this->load->view('news/view', $data);
+            $this->load->view('templates/footer');
+            //$this->load->view('news/messageError');
+        } else {
+            $this->news_model->set_comments();
+            $this->load->view('news/success');
+        }
     }
 
 //funcion para borrar comentario
 
     public function borrarComment() {
+        $id = $this->input->post('id');
         $this->load->helper('form');
-        $this->news_model->del_comment($_POST['id']);
+        $this->news_model->del_comments($id);
 
         $this->load->view('news/success');
     }

@@ -28,10 +28,15 @@ class News_model extends CI_Model {
         $this->load->helper('url');
 
         $slug = url_title($this->input->post('title'), 'dash', TRUE);
-
+        if ($_POST['autor'] !== '') {
+            $user = $this->input->post('autor');
+        } else {
+            $user = 'anonimo';
+        }
         $data = array(
             'title' => $this->input->post('title'),
             'slug' => $slug,
+            'autor' => $user,
             'fecha' => standard_date('DATE_W3C', now()),
             'text' => $this->input->post('text')
         );
@@ -67,7 +72,7 @@ class News_model extends CI_Model {
         $data = array(
             'idArticulo' => $this->input->post('idArt'),
             'user' => $user,
-            'fecha' => $date, //standard_date('DATE_W3C', now()),
+            'fecha' => $date,
             'text' => $this->input->post('text')
         );
 

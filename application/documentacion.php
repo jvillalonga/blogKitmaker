@@ -34,6 +34,6 @@ CREATE TABLE `comentarios` (
 );
 
 
-<p>Solo los administradores pueden iniciar sesión. Una vez iniciada los administradores pueden crear nuevos artículos.</p>
+<p>Solo los administradores pueden iniciar sesión.</p>
 <p>Al ver los detalles de un artículo tambien se pueden ver todos los comentarios de dicho artículo. El administrador podrá eliminar qualquier comentario.</p>
-<p>Cualquiera puede crear comentarios. En caso de no introducir ningún nombre de autor aparecerá como 'anonimo'.</p>
+<p>Cualquiera puede crear artículos y comentarios. En caso de no introducir ningún autor aparecerá como 'anonimo'.</p>

@@ -33,13 +33,9 @@
                 <nav>
                     <ul>
                         <li><a href="<?php echo site_url('news'); ?>">Inicio</a></li>
-                        <li><a href="<?php echo site_url('news/allNews'); ?>">Todos los artículos</a></li> 
-                        <?php
-                        if (isset($_SESSION["log"]) && $_SESSION["log"] == 'ok') {
-                            echo '
-                    <li><a href="' . site_url('news/create') . '">Publicar artículo</a></li>';
-                        }
-                        ?>
+                        <li><a href="<?php echo site_url('news/allNews'); ?>">Todos los artículos</a></li>
+                        <li><a href="<?php echo site_url('news/create'); ?>">Publicar artículo</a></li>
+                        
                         <li>
                             <?php
                             if (isset($_SESSION["log"]) && $_SESSION["log"] == 'ok') {

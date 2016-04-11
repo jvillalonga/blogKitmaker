@@ -6,6 +6,7 @@
                 <th>ID</th>
                 <th>Artículo</th>
                 <th>Fecha</th>
+                <th>Autor</th>
                 <th>Info</th>
                 <th>Enlace</th>
                 <th></th>
@@ -17,6 +18,7 @@
                     <td><?php echo $news_item['id']; ?></td>
                     <td><?php echo $news_item['title']; ?></td>
                     <td><?php echo $news_item['fecha']; ?></td>
+                    <td><?php echo $news_item['autor']; ?></td>
                     <td><?php echo substr($news_item['text'],0,20).' ...'; ?></td>
                     <td><a href="<?php echo site_url('news/' . $news_item['slug']); ?>">Leer más</a></td>
                     <td>
