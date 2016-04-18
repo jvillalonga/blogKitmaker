@@ -95,7 +95,7 @@ class News extends CI_Controller {
       $this->load->view('templates/footer');
     } else {
       if ($this->users_model->get_userName() === 1) {
-        $this->load->view('news/logError');
+        $this->load->view('news/registrError');
       } else {
         $this->users_model->set_user();
         $this->load->view('news/success');
