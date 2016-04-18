@@ -28,7 +28,7 @@ class News_model extends CI_Model {
         $this->load->helper('url');
 
         $slug = url_title($this->input->post('title'), 'dash', TRUE);
-        if ($_POST['autor'] !== '') {
+        if ($this->input->post('autor') !== '') {
             $user = $this->input->post('autor');
         } else {
             $user = 'anonimo';
@@ -55,7 +55,7 @@ class News_model extends CI_Model {
 
         $this->db->count_all_results('users');
         $this->db->where('user', $user);
-        $this->db->where('pass', $pass);
+        $this->db->where('pass', MD5($pass));
         $this->db->from('users');
         $query = $this->db->count_all_results();
         return $query;
@@ -64,7 +64,7 @@ class News_model extends CI_Model {
     public function set_comments() {
         $this->load->helper('url');
         $date = mdate('%Y-%m-%d', time());
-        if ($_POST['user'] !== '') {
+        if ($this->input->post('user') !== '') {
             $user = $this->input->post('user');
         } else {
             $user = 'anonimo';
