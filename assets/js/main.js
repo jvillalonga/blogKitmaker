@@ -6,11 +6,14 @@ $(document).ready(function () {
   $('.article').hide();
   $('.comment').hide();
   $('#deviceInfo').hide();
+  $('.emotes').hide();
 
   $('.article').slideDown();
   $('.comment').slideDown();
   $('#deviceInfo').slideDown();
-
+  $('#emoteBt').click(function (){
+    $('.emotes').slideToggle();
+  });
 });
 
 $(window).bind('scroll', function () {

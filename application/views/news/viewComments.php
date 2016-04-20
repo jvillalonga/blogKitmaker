@@ -11,8 +11,9 @@
       <div class="foto">
         <img src="<?php echo base_url(); ?>assets/img/user2.svg" alt="user" height="80px" width="80px">
       </div>
+      <p class="infoArt"> <?php echo $comments_item['user']; ?></p>
+      <p class="infoArt"> <?php echo $comments_item['fecha']; ?></p>
       <div>
-        <p class="infoArt">Autor: <?php echo $comments_item['user']; ?>,  <?php echo $comments_item['fecha']; ?></p>
         <p>
           <?php $str = $comments_item['text'];
            echo $str = parse_smileys($str, base_url('/assets/smileys/'));
