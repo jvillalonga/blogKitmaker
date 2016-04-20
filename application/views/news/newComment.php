@@ -9,7 +9,9 @@
         echo $_SESSION["user"] . '" readonly=""';
       }
       ?>"/><br />
-      <textarea name="text" placeholder="Comentario" required></textarea><br />
+      <textarea name="comments" id="comments" placeholder="Comentario" cols="25" rows="6" required></textarea><br />
+      <p>Click para insertar:</p>
+      <?php echo $smiley_table; ?>
       <input type="submit" value="Añadir comentario"/>
     </fieldset>
   </form>

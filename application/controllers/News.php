@@ -10,6 +10,8 @@ class News extends CI_Controller {
     $this->load->helper('url_helper');
     $this->load->helper('date');
     $this->load->library('session');
+    $this->load->library('table');
+    $this->load->helper('smiley');
   }
 
   public function index() {
@@ -43,7 +45,10 @@ class News extends CI_Controller {
 
     $data['title'] = $data['news_item']['title'];
     $data['id'] = $data['news_item']['id'];
+    $image_array = get_clickable_smileys(base_url('/assets/smileys/'), 'comments');
+    $col_array = $this->table->make_columns($image_array, 8);
 
+    $data['smiley_table'] = $this->table->generate($col_array);
     $this->load->view('templates/header', $data);
     $this->load->view('news/view', $data);
     $this->load->view('news/viewComments', $data);
